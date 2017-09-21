@@ -2,7 +2,7 @@
 使用aop实现基于角色和资源的权限控制
 
 #### 大概实现流程
-- 使用Aspect的基于类注解切点**@within**与方法注解切点**@annotation**
+- 使用Aspect的基于类注解切点 **@within** 与方法注解切点 **@annotation**
 - 注解绑定,获得注解的值
 - 使用**RequestContextHolder**获得request对象,获得session
 - 判断是否具备权限,如果不具备丢出异常, 使用全局异常处理器拦截
