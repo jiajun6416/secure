@@ -20,21 +20,21 @@ public class BookingController {
 	@RequiresPermissions("booking:insert")
 	public String save() {
 		bookingService.save();
-		return "success";
+		return "保存success";
 	}
 	
 	@RequestMapping("delete")
 	@RequiresPermissions("booking:delete")
 	public String delete() {
 		bookingService.delete();
-		return "success";
+		return "删除success";
 	}
 	
 	@RequestMapping("update")
 	@RequiresPermissions("booking:update")
 	public String update() {
 		bookingService.update();
-		return "success";
+		return "修改success";
 	}
 	
 }

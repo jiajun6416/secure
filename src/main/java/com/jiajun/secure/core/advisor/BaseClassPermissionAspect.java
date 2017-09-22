@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.jiajun.secure.core.annotation.RequiresPermissions;
 import com.jiajun.secure.core.annotation.RequiresRoles;
-import com.jiajun.secure.core.exception.PermissionDeniedException;
+import com.jiajun.secure.core.exception.UnauthenticatedException;
 import com.jiajun.secure.service.UserService;
 
 @Aspect
@@ -33,7 +33,7 @@ public class BaseClassPermissionAspect implements Ordered{
 		for (String role : roles) {
 			System.out.println(String.format("拦截方法%s.%s,确认是否具备%s角色", targetName, method,role));
 			if(!hasRoles.contains(role)) {
-				throw new PermissionDeniedException("不具备"+role+"角色");
+				throw new UnauthenticatedException("不具备"+role+"角色");
 			}
 		}
 	}
@@ -46,7 +46,7 @@ public class BaseClassPermissionAspect implements Ordered{
 		for (String permission : permissions) {
 			System.out.println(String.format("拦截方法%s.%s,确认是否具备%s资源", targetName, method,permission));
 			if(!haspers.contains(permission)) {
-				throw new PermissionDeniedException("不具备"+permission+"权限");
+				throw new UnauthenticatedException("不具备"+permission+"权限");
 			}
 		}
 	}

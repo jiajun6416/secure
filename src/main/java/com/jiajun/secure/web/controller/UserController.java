@@ -20,7 +20,7 @@ public class UserController {
 	@RequiresPermissions("user:insert")
 	public String insert() {
 		userService.insert();
-		return "success";
+		return "保存success";
 	}
 	
 	@RequestMapping("delete")
@@ -28,19 +28,19 @@ public class UserController {
 	@RequiresRoles("admin")
 	public String delete() {
 		userService.delte();
-		return "success";
+		return "删除success";
 	}
 	
 	@RequestMapping("list")
 	public String list() {
 		userService.list();
-		return "success";
+		return "查询success";
 	}
 	
-	@RequestMapping("update")
-	@RequiresPermissions("user:insert")
+	@RequiresPermissions("user:update")
+	@RequestMapping(value="update")
 	public String update() {
 		userService.update();
-		return "success";
+		return "修改success";
 	}
 }
